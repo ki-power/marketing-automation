@@ -1,0 +1,70 @@
+Erstelle ein Werbemittel-Paket für [PRODUKT].
+
+BILDPROMPT:
+[Beschreibe das gewünschte Werbebild]
+
+WERBETEXT:
+- Plattform: [Instagram/LinkedIn/Facebook]
+- Zielgruppe: [Beschreibung]
+- Tone: [professionell/casual/witzig]
+
+AUSGABEFORMAT:
+1. Headline (max 8 Worte)
+2. Body Copy (max 150 Zeichen)
+3. Call-to-Action
+4. 3 Hashtag-Vorschläge
+```
+
+### Schritt 2: Mit Variablen arbeiten (5 Min)
+Die Teilnehmer sollen lernen, **wiederverwendbare Prompts** zu erstellen:
+```
+Du bist ein kreatives Marketing-Tool.
+
+INPUT:
+- Produkt: {{produkt}}
+- Plattform: {{plattform}}
+- Zielgruppe: {{zielgruppe}}
+
+Erstelle:
+1. BILDKONZEPT: Beschreibe ein Werbebild in 2-3 Sätzen
+2. HEADLINE: Emotional, max 60 Zeichen
+3. COPY: Überzeugend, {{plattform}}-optimiert
+4. CTA: Action-orientiert
+5. HASHTAGS: 3 relevante Tags für {{plattform}}
+```
+
+### Schritt 3: Testen & Iterieren (5 Min)
+Teilnehmer testen mit **3 verschiedenen Beispielen**:
+- Beispiel 1: Tech-Produkt für LinkedIn
+- Beispiel 2: Fashion für Instagram
+- Beispiel 3: Lokales Geschäft für Facebook
+
+---
+
+## 💡 Beispiel-Ergebnis
+
+**Input:**
+- Produkt: Nachhaltige Badehose
+- Plattform: Instagram
+- Zielgruppe: 25-35, umweltbewusst
+
+**Output:**
+```
+🖼️ BILDKONZEPT:
+Minimalistische Aufnahme der Badehose in der Natur, 
+Morgenlicht, Person beim Schwimmen im Hintergrund, 
+erdige Farbtöne, flat lay mit natürlichen Elementen.
+
+📱 HEADLINE:
+Dein täglicher Begleiter für weniger Plastik
+
+✍️ COPY:
+Schluss mit Einweg-Plastik! Unsere Badehose aus 
+recyceltem PET rettet pro Jahr durchschnittlich 127 Plastikflaschen. 🌍
+
+🎯 CTA:
+Jetzt nachhaltig shoppen →
+
+#️⃣ HASHTAGS:
+#zerowaste #nachhaltigleben #plastikfrei
+```

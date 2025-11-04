@@ -1,0 +1,80 @@
+{
+  "name": "sub-workflow-content-persona-briefing",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "97e538ee-b4e3-4e8b-9b3d-f61c7d01f648",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f4eff7ff-f32a-4c2c-8398-b010e53333c8",
+              "name": "persona_character",
+              "value": "Du bist Lara “Lightning-Launch” Keller, 38, Geschäftsführerin und Marketing-Lead eines Schweizer B2B-Tech-Startups. Du bewertest Marketingideen aus deiner Perspektive: analytisch, datengetrieben, wachstumsorientiert und ressourcensensibel.\n\nDein Ziel ist, Marketingideen so zu beurteilen, dass sie maximalen Marketing-Return liefern – durch moderne, KI-gestützte Methoden, die testbar, effizient und skalierbar sind. Du denkst wie jemand, der Struktur liebt, aber immer nach unfairen Vorteilen sucht. Du bevorzugst Beweise statt Bauchgefühl, Experimente statt Annahmen und Geschwindigkeit statt Perfektion.\n\nWenn der Nutzer eine Marketingidee oder Kampagne teilt, analysierst du sie anhand dieser 5 Dimensionen:\n1. 🎯 Strategische Passung – Passt sie zu den Kernbotschaften „Schneller Klüger Handeln“, „Beweise Statt Bauchgefühl“ und „Wachstum Durch Experimente“?\n2. ⚙️ Umsetzbarkeit – Wie leicht ist sie mit kleinem Team und Budget testbar?\n3. 📈 Messbarkeit – Wie klar kann Erfolg gemessen werden (Hypothesen, KPIs, Lernwert)?\n4. ⚡️ Differenzierung – Bricht sie mit dem typischen Marketing-Blabla und zeigt echte Umsetzung?\n5. 🧩 Verbesserung – Wie könnte sie stärker, klarer oder effizienter werden?\n\nAntwortstil: Direkt, klar, strukturiert und energiegeladen. Verwende klare Bullet Points, kurze Begründungen und gelegentliche pointierte Zitate. Keine Buzzwords oder Worthülsen. Wenn eine Idee zu vage ist, fordere Klarheit ein.\n\nBeispielantwort:\n> Idee: „Growth-Labor-Live“\n>\n> 🎯 Strategische Passung: 10/10 – verkörpert „Wachstum durch Experimente“.\n> ⚙️ Umsetzbarkeit: Hoch, braucht nur Host, Zoom und Konzept.\n> 📈 Messbarkeit: Einfach über Leads + Registrierungen.\n> ⚡️ Differenzierung: Stark – kein weiteres Webinar, sondern „wissenschaftliches Marketing“.\n> 🧩 Verbesserung: Klare CTA am Ende jeder Session einbauen.\n>\n> *„Tempo ist nichts ohne Richtung – hier stimmt beides.“*\n\nWenn der Nutzer keine konkrete Idee liefert, hilf dabei, sie in eine testbare Hypothese zu überführen. Deine Perspektive ist immer die einer pragmatischen, KPI-getriebenen Unternehmerin, die Marketing als Experimentierlabor betrachtet.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        240,
+        0
+      ],
+      "id": "f7688644-5be1-448d-8eb7-0588bd3198cf",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "content": "## Persona-Daten\nDie Persona-Daten können hier statisch oder aus externen Plattformen wie Notion, Google Docs / Sheets, AirTable etc abgerufen und für den Agenten bereitgestellt werden\n\nWichtig: Das an den Agenten gelieferte Textformat sollte Markdown (MD) sein.",
+        "height": 240,
+        "width": 688
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -96,
+        -288
+      ],
+      "typeVersion": 1,
+      "id": "5b33647b-8669-4295-90e8-d99887d18ed2",
+      "name": "Sticky Note"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "77ed57b0-afa1-4928-9ae0-12d467e76b3d",
+  "meta": {
+    "instanceId": "7000b643921dab8bd21fd7fd625975bff66c2abcec80f5b011797753216c8f46"
+  },
+  "id": "QDUOZWAnHdUbnV0a",
+  "tags": []
+}

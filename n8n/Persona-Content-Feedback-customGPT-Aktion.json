@@ -1,12 +1,13 @@
 {
-  "name": "Persona-Content-Feedback-current",
+  "name": "Persona-Content-Feedback-custom-GPT",
   "nodes": [
     {
       "parameters": {
         "httpMethod": "POST",
         "path": "6599c1a9-b3db-4b8b-a066-29298ad4cc9a",
-        "responseMode": "lastNode",
-        "options": {}
+        "options": {
+          "responseData": "success"
+        }
       },
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2.1,
@@ -208,7 +209,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "e8a1d742-8d36-4fbf-b963-72d65646241d",
+  "versionId": "e204a7f5-1b44-4517-bdc6-dafc58bf1228",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "7000b643921dab8bd21fd7fd625975bff66c2abcec80f5b011797753216c8f46"

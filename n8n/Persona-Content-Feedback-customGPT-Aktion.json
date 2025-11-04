@@ -1,0 +1,218 @@
+{
+  "name": "Persona-Content-Feedback-current",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "6599c1a9-b3db-4b8b-a066-29298ad4cc9a",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -240,
+        192
+      ],
+      "id": "61e2df19-c0fa-424c-92de-4b95fcdef509",
+      "name": "Webhook",
+      "webhookId": "6599c1a9-b3db-4b8b-a066-29298ad4cc9a"
+    },
+    {
+      "parameters": {
+        "content": "## Webhook mit customGPT Aktion ausführen\n\num diesesn Webhook in einem customGPT einzsuetzen, kann folgendes JSON-Schema in GPT verwendet werden:\n\n\n````YAML\nopenapi: 3.1.0\ninfo:\n  title: Persona Feedback API\n  description: Sendet Content-Feedback an Google Sheets\n  version: 1.0.0\nservers:\n  - url: https://<deine-n8n-instanz-url>/webhook\npaths:\n  /<dein-webhook-pfad>:\n    post:\n      operationId: sendFeedback\n      summary: Sende Persona-Feedback\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                content_idee:\n                  type: string\n                  description: Die Content-Idee die bewertet wurde\n                aufmerksamkeit:\n                  type: string\n                  description: Ja/Nein/Vielleicht\n                was_spricht_an:\n                  type: string\n                  description: Was spricht die Persona an\n                was_fehlt:\n                  type: string\n                  description: Was fehlt oder stört\n                verbesserung:\n                  type: string\n                  description: Konkreter Verbesserungsvorschlag\n              required:\n                - content_idee\n                - aufmerksamkeit\n      responses:\n        '200':\n          description: Erfolgreich gespeichert\n````",
+        "height": 832,
+        "width": 1184
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -352,
+        -688
+      ],
+      "typeVersion": 1,
+      "id": "5aa84efb-402c-435b-953d-57fed8918918",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/19vbFrZVzzAVRou1LcqMyTyeJ8gW8la2UtMbiOHxCboQ/edit?gid=0#gid=0",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 556616075,
+          "mode": "list",
+          "cachedResultName": "gpt-aktion",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/19vbFrZVzzAVRou1LcqMyTyeJ8gW8la2UtMbiOHxCboQ/edit#gid=556616075"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "content_idee": "={{ $json.body.content_idee }}",
+            "aufmerksamkeit": "={{ $json.body.aufmerksamkeit }}",
+            "was_spricht_an": "={{ $json.body.was_spricht_an }}",
+            "was_fehlt": "={{ $json.body.was_fehlt }}",
+            "verbesserung": "={{ $json.body.verbesserung }}"
+          },
+          "matchingColumns": [
+            "Idee-Nr"
+          ],
+          "schema": [
+            {
+              "id": "content_idee",
+              "displayName": "content_idee",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "rating",
+              "displayName": "rating",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "aufmerksamkeit",
+              "displayName": "aufmerksamkeit",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "was_spricht_an",
+              "displayName": "was_spricht_an",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "was_fehlt",
+              "displayName": "was_fehlt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "verbesserung",
+              "displayName": "verbesserung",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "useAppend": false
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        176,
+        192
+      ],
+      "id": "b7d83e5f-806a-4fc1-97bf-34096c8f2196",
+      "name": "daten-in-tabelle-schreiben",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "YgMWqSuGdjiblmOo",
+          "name": "Google Sheets account"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n.bosshart.sg",
+            "user-agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; ChatGPT-User/1.0; +https://openai.com/bot",
+            "content-length": "1453",
+            "accept": "*/*",
+            "accept-encoding": "gzip, deflate, br",
+            "content-type": "application/json",
+            "openai-conversation-id": "e3b587ac-631e-5d06-80e5-b4af25cd6fc6",
+            "openai-ephemeral-user-id": "5da06c8a-9f3f-59cf-ba30-429952d0d591",
+            "openai-gpt-id": "g-6908c067bb2c8191b9bc52682b03ca74",
+            "traceparent": "00-690a16dd00000000b15921556b841436-c42aa4b9c082aca4-00",
+            "tracestate": "dd=s:-1;p:2cad94968b357b73;t.dm:-3",
+            "via": "1.1 Caddy",
+            "x-datadog-parent-id": "435797536613597182",
+            "x-datadog-sampling-priority": "-1",
+            "x-datadog-tags": "_dd.p.tid=690a16dd00000000,_dd.p.dm=-3",
+            "x-datadog-trace-id": "12779282068400247862",
+            "x-forwarded-for": "68.221.67.163",
+            "x-forwarded-host": "n8n.bosshart.sg",
+            "x-forwarded-proto": "https",
+            "x-request-id": "65559249-5eac-40bd-84bc-c952dae0a646/sg0p"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "content_idee": "Ich wollte GPT Atlas einen einfachen n8n-Workflow bauen lassen. Ergebnis: 3 von 4 Versuchen sind grandios gescheitert. 🤯  Und genau das war das Wertvollste am Experiment.  Ich wollte wissen: Kann GPT Atlas ohne Code einen Automations-Workflow aufbauen, den auch Marketer verstehen? Spoiler: Noch nicht ganz.  Was passiert ist: 1️⃣ Atlas verstand meine Ziele erstaunlich gut. 2️⃣ Aber dann: Syntaxfehler, falsche Trigger, kaputte API-Calls. 3️⃣ Ergebnis: ein Workflow, der hübsch aussah – aber nichts tat. 😅  Was ich gelernt habe: - KI kann logische Abläufe beschreiben, aber nicht immer korrekt umsetzen. - Ohne Grundverständnis für Tools wie n8n wird’s schnell Trial & Error. - GPT Atlas ist aktuell mehr Co-Pilot als Autopilot.  Fazit: Ich bin trotzdem beeindruckt. Wenn 3 von 4 scheitern, heisst das – einer funktioniert. Und das reicht, um 3 h pro Woche zu sparen. 💡  👉 Wer hat GPT Atlas schon mal an seine Grenzen gebracht? Was war euer „Das hätte ich nicht gedacht“-Moment?",
+            "aufmerksamkeit": "Ja",
+            "was_spricht_an": "Ehrlicher Erfahrungsbericht, Humor, Realitätsbezug statt Hype.",
+            "was_fehlt": "Evtl. ein Screenshot oder visuelles Beispiel für mehr Aufmerksamkeit.",
+            "verbesserung": "Visuellen Eyecatcher (Screenshot oder GIF) hinzufügen, um die Aufmerksamkeit im Feed zu erhöhen."
+          },
+          "webhookUrl": "https://n8n.bosshart.sg/webhook/6599c1a9-b3db-4b8b-a066-29298ad4cc9a",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "daten-in-tabelle-schreiben",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "daten-in-tabelle-schreiben": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "e8a1d742-8d36-4fbf-b963-72d65646241d",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "7000b643921dab8bd21fd7fd625975bff66c2abcec80f5b011797753216c8f46"
+  },
+  "id": "xdD6hiSOdUhhHKX6",
+  "tags": []
+}
